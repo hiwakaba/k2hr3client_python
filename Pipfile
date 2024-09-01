@@ -5,7 +5,6 @@ verify_ssl = true
 
 [dev-packages]
 coverage = "*"
-xmlrunner = "*"
 flake8 = "*"
 flake8-docstrings = "*"
 pep8-naming = "*"
