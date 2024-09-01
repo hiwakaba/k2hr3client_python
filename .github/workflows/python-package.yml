@@ -49,11 +49,15 @@ jobs:
         pipenv install --deploy --dev
     - name: Lint with pylint
       run: |
-        make lint
+        pipenv run flake8 --version
+        pipenv run flake8 src/k2hr3client
+        pipenv run mypy src/k2hr3client
+        pipenv run pylint src/k2hr3client
+        pipenv run python3 setup.py checkdocs
       shell: sh
     - name: Test with unittest
       run: |
-        make test
+        pipenv run python3 -m unittest discover src
       shell: sh
     - name: Install dependencies for upload pypi package
       if: startsWith(github.ref, 'refs/tags')
