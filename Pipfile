@@ -22,5 +22,6 @@ typed-ast =  "*"
 astroid = "*"
 mypy = "*"
 "collective.checkdocs" = "*"
+tomli = "*"
 
 [packages]
