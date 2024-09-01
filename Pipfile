@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+coverage = "*"
+xmlrunner = "*"
+flake8 = "*"
+flake8-docstrings = "*"
+pep8-naming = "*"
+pycodestyle = "*"
+mccabe = "*"
+sphinx-autoapi = "*"
+sphinx-intl = "*"
+sphinx-rtd-theme = "*"
+sphinx = "*"
+watchdog = "*"
+wheel = "*"
+twine = "*"
+pylint =  "*"
+typed-ast =  "*"
+astroid = "*"
+mypy = "*"
+"collective.checkdocs" = "*"
+
+[packages]
