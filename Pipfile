@@ -23,5 +23,6 @@ astroid = "*"
 mypy = "*"
 "collective.checkdocs" = "*"
 tomli = "*"
+dill = "*"
 
 [packages]
