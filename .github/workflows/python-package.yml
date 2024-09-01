@@ -49,7 +49,6 @@ jobs:
         pipenv install --deploy --dev
     - name: Lint with pylint
       run: |
-        pipenv run flake8 --version
         pipenv run flake8 src/k2hr3client
         pipenv run mypy src/k2hr3client
         pipenv run pylint src/k2hr3client
