@@ -1,3 +1,14 @@
+# K2HDKC DBaaS based on Trove
+# 
+# Copyright (c) 2022 Yahoo Japan Corporation
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Hirotaka Wakabayashi
+# CREATE:   Tue Feb 08 2022
+# REVISION:
+#
 # .readthedocs.yaml
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
@@ -27,6 +38,6 @@ sphinx:
 # Optional but recommended, declare the Python requirements required
 # to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
-# python:
-#    install:
-#    - requirements: docs/requirements.txt
+python:
+   install:
+   - requirements: docs/requirements.txt

@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.abspath('../src/'))
 # -- Project information -----------------------------------------------------
 
 project = 'k2hr3client'
-copyright = '2022, Yahoo Japan Corporation'
+copyright = '2020, Yahoo Japan Corporation'
 author = 'Hirotaka Wakabayashi, Takeshi Nakatani'
 
 # The full version, including alpha/beta/rc tags
