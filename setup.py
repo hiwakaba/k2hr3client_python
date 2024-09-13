@@ -4,6 +4,7 @@
 # K2HDKC DBaaS based on Trove
 #
 # Copyright 2020 Yahoo Japan Corporation
+# Copyright 2024 LY Corporation
 #
 # K2HDKC DBaaS is a Database as a Service compatible with Trove which
 # is DBaaS for OpenStack.

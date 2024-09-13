@@ -1,5 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2020, Yahoo Japan Corporation
+# Copyright (C) 2024, LY Corporation
 # This file is distributed under the same license as the k2hr3client
 # package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.

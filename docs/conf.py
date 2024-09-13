@@ -3,6 +3,7 @@
 # K2HDKC DBaaS based on Trove
 # 
 # Copyright (c) 2022 Yahoo Japan Corporation
+# Copyright (c) 2024 LY Corporation
 #
 # For the full copyright and license information, please view
 # the license file that was distributed with this source code.

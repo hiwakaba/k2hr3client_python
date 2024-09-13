@@ -3,6 +3,7 @@
 # K2HDKC DBaaS based on Trove
 #
 # Copyright 2020 Yahoo Japan Corporation
+# Copyright 2024 LY Corporation
 #
 # K2HDKC DBaaS is a Database as a Service compatible with Trove which
 # is DBaaS for OpenStack.
@@ -124,7 +125,7 @@ SSL                 = no
 #
 [K2HDKC]
 K2HTYPE             = file
-K2HFILE             = /var/lib/k2hdkc/data/k2hdkc.k2h
+K2HFILE             = /var/lib/antpickax/data/k2hdkc.k2h
 K2HFULLMAP          = on
 K2HINIT             = no
 K2HMASKBIT          = 8

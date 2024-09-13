@@ -2,6 +2,7 @@
 # K2HDKC DBaaS based on Trove
 #
 # Copyright 2020 Yahoo Japan Corporation
+# Copyright 2024 LY Corporation
 #
 # K2HDKC DBaaS is a Database as a Service compatible with Trove which
 # is DBaaS for OpenStack.
@@ -62,7 +63,7 @@ clean-build: ## remove build artifacts
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
-	rm -f VERSION RPMSPEC_VERSION
+	rm -f VERSION
 
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
@@ -91,21 +92,18 @@ build: ## run build
 	$ python3 -m build
 
 version:
-	@rm -f VERSION RPMSPEC_VERSION
+	@rm -f VERSION
 	@perl -ne 'print if /^[0-9]+.[0-9]+.[0-9]+ \([0-9]{4}-[0-9]{2}-[0-9]{2}\)$$/' HISTORY.rst \
 		| head -n 1 | perl -lne 'print $$1 if /^([0-9]+.[0-9]+.[0-9]+) \(.*\)/' > VERSION
-	@perl -ne 'print $$2 if /^Version:(\s+)([0-9]+.[0-9]+.[0-9]+)$$/' k2hr3client.spec > RPMSPEC_VERSION
 
-SOURCE_VERSION = $(shell python3 -c 'import k2hr3client; print(k2hr3client.version())')
+SOURCE_VERSION = $(shell cd src; python3 -c 'import k2hr3client; print(k2hr3client.get_version())')
 HISTORY_VERSION = $(shell cat VERSION)
-RPMSPEC_VERSION = $(shell cat RPMSPEC_VERSION)
 
-test-with-version: version ## builds source and wheel package
+test-version: version ## builds source and wheel package
 	@echo 'source  ' ${SOURCE_VERSION}
 	@echo 'history ' ${HISTORY_VERSION}
-	@echo 'rpmspec ' ${RPMSPEC_VERSION}
-	@if test "${SOURCE_VERSION}" = "${HISTORY_VERSION}" -a "${HISTORY_VERSION}" = "${RPMSPEC_VERSION}" ; then \
-		python3 -m unittest ; \
+	@if test "${SOURCE_VERSION}" = "${HISTORY_VERSION}" ; then \
+		python3 -m unittest discover src; \
 	fi
 
 test-all: lint test-version
@@ -139,7 +137,7 @@ test-release:
 dist: clean version ## builds source and wheel package
 	@echo 'source  ' ${SOURCE_VERSION}
 	@echo 'history ' ${HISTORY_VERSION}
-	@if test "${SOURCE_VERSION}" = "${HISTORY_VERSION}" -a "${HISTORY_VERSION}" = "${RPMSPEC_VERSION}" ; then \
+	@if test "${SOURCE_VERSION}" = "${HISTORY_VERSION}" ; then \
 		python3 setup.py sdist ; \
 		python3 setup.py bdist_wheel ; \
 		ls -l dist ; \

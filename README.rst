@@ -100,11 +100,8 @@ Here are documents including other components.
 `About AntPickax`_
 
 .. _`Document top page`: https://k2hr3client-python.readthedocs.io/
-.. _`ドキュメントトップ`: https://k2hr3client-python.readthedocs.io/
 .. _`About K2HR3`: https://k2hr3.antpick.ax/
-.. _`K2HR3について`: https://k2hr3.antpick.ax/
 .. _`About AntPickax`: https://antpick.ax
-.. _`AntPickaxについて`: https://antpick.ax
 
 
 Packages
