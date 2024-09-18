@@ -17,6 +17,7 @@
 # CREATE:   Mon Sep 14 2020
 # REVISION:
 #
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -27,6 +28,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
