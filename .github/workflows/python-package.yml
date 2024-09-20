@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://testpypi.org/p/k2hr3client
+      url: https://test.pypi.org/p/k2hr3client
     permissions:
       id-token: write
     strategy:
