@@ -228,7 +228,7 @@ class K2hr3Role(K2hr3Api):  # pylint: disable=too-many-instance-attributes
     # POST(Add HOST to ROLE)
     # http(s)://API SERVER:PORT/v1/role/role path
     # http(s)://API SERVER:PORT/v1/role/yrn full path to role
-    def add_member(self, name: str, host: str,
+    def add_member(self, name: str, host: str,  # pylint: disable=R0917
                    clear_hostname: bool, clear_ips: str,
                    role_name: Optional[str] = None):
         """Add a member to the role."""
@@ -247,7 +247,7 @@ class K2hr3Role(K2hr3Api):  # pylint: disable=too-many-instance-attributes
             self.name = role_name
         return self
 
-    def add_members(self, name: str, hosts: str,
+    def add_members(self, name: str, hosts: str,  # pylint: disable=R0917
                     clear_hostname: bool, clear_ips: str,
                     role_name: Optional[str] = None):
         """Add members to the role."""
@@ -365,7 +365,7 @@ class K2hr3Role(K2hr3Api):  # pylint: disable=too-many-instance-attributes
 
     # DELETE(Hostname/IP address deletion-role specification)
     # http(s)://API SERVER:PORT/v1/role/role path or yrn full role path
-    def delete_member(self, name: str, host: str, port: str, cuk: str,
+    def delete_member(self, name: str, host: str, port: str, cuk: str,  # pylint: disable=R0917 # noqa
                       role_name: Optional[str] = None):
         """Delete host."""
         self.api_id = 10
