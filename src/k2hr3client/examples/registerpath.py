@@ -35,10 +35,10 @@ src_dir = os.path.join(here, '..')
 if os.path.exists(src_dir):
     sys.path.append(src_dir)
 
-from k2hr3client.http import K2hr3Http  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.token import K2hr3Token  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.token import K2hr3RoleToken  # pylint: disable=import-error, wrong-import-position
-from k2hr3client.token import K2hr3RoleTokenList  # pylint: disable=import-error, wrong-import-position
+from k2hr3client.http import K2hr3Http  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.token import K2hr3Token  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.token import K2hr3RoleToken  # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.token import K2hr3RoleTokenList  # pylint: disable=import-error, wrong-import-position # noqa
 
 IDENTITY_V3_PASSWORD_AUTH_JSON_DATA = """
 {
@@ -85,7 +85,7 @@ IDENTITY_V3_TOKEN_AUTH_JSON_DATA = """
 
 
 def get_scoped_token_id(url, user, password, project):
-    """ get a scoped token id from openstack identity. """
+    """Get a scoped token id from openstack identity."""
     # unscoped token-id
     # https://docs.openstack.org/api-ref/identity/v3/index.html#password-authentication-with-unscoped-authorization
     python_data = json.loads(IDENTITY_V3_PASSWORD_AUTH_JSON_DATA)
@@ -174,7 +174,7 @@ if __name__ == '__main__':
                                                expand=True)
     http.GET(k2hr3_role_token_list)
 
-    # 4. Gets the registerpath of the k2hr3 role token using the k2hr3 role token
+    # 4. Gets the registerpath of the k2hr3 role token
     registerpath = k2hr3_role_token_list.registerpath(roletoken)
     print("{}".format(registerpath))
     sys.exit(0)

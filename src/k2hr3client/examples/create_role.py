@@ -36,11 +36,11 @@ src_dir = os.path.join(here, '..')
 if os.path.exists(src_dir):
     sys.path.append(src_dir)
 
-from k2hr3client.http import K2hr3Http  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.token import K2hr3Token  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.resource import K2hr3Resource  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.policy import K2hr3Policy  # type: ignore # pylint: disable=import-error, wrong-import-position
-from k2hr3client.role import K2hr3Role  # type: ignore # pylint: disable=import-error, wrong-import-position
+from k2hr3client.http import K2hr3Http  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.token import K2hr3Token  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.resource import K2hr3Resource  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
+from k2hr3client.policy import K2hr3Policy  # type: ignore # pylint: disable=import-error, wrong-import-position #noqa
+from k2hr3client.role import K2hr3Role  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 
 IDENTITY_V3_PASSWORD_AUTH_JSON_DATA = """
 {
@@ -87,7 +87,7 @@ IDENTITY_V3_TOKEN_AUTH_JSON_DATA = """
 
 
 def get_scoped_token_id(url, user, password, project):
-    """ get a scoped token id from openstack identity. """
+    """Get a scoped token id from openstack identity."""
     # unscoped token-id
     # https://docs.openstack.org/api-ref/identity/v3/index.html#password-authentication-with-unscoped-authorization
     python_data = json.loads(IDENTITY_V3_PASSWORD_AUTH_JSON_DATA)
@@ -165,9 +165,6 @@ if __name__ == '__main__':
     # 1. Gets a openstack token id from openstack identity server
     openstack_token = get_scoped_token_id(args.url, args.user, args.password,
                                           args.project)
-    # debug
-    # print(openstack_token) 
-    # sys.exit(0)
 
     # 2. Gets a k2hr3 token from the openstack token
     k2hr3_token = K2hr3Token(args.project, openstack_token)
@@ -176,13 +173,14 @@ if __name__ == '__main__':
 
     # 3. Makes a new k2hr3 resource
     k2hr3_resource = K2hr3Resource(k2hr3_token.token)
+    init_py = Path(k2hr3client.__file__)
+    txt_file = init_py.parent.joinpath('examples',
+                                       'example_resource.txt')
     http.POST(
         k2hr3_resource.create_conf_resource(
             name=args.resource,
             data_type='string',
-            data=Path(
-                '/usr/local/lib/python3.9/site-packages/k2hr3client/examples/example_resource.txt'
-            ),
+            data=Path(txt_file),
             tenant=args.project,
             cluster_name=args.resource,
             keys={
@@ -208,7 +206,10 @@ if __name__ == '__main__':
             name="/".join([args.resource, "server"]),
             data_type='string',
             data="",
-            keys={"chmpx-mode": "SERVER", "k2hr3-init-packages": "", "k2hr3-init-packagecloud-packages": "", "k2hr3-init-systemd-packages": ""},
+            keys={"chmpx-mode": "SERVER",
+                  "k2hr3-init-packages": "",
+                  "k2hr3-init-packagecloud-packages": "",
+                  "k2hr3-init-systemd-packages": ""},
             alias=[]
         )
     )
@@ -222,7 +223,11 @@ if __name__ == '__main__':
             name="/".join([args.resource, "slave"]),
             data_type='string',
             data="",
-            keys={"chmpx-mode": "SLAVE", "k2hr3-init-packages": "", "k2hr3-init-packagecloud-packages": "", "k2hr3-init-systemd-packages": "", "k2hdkc-dbaas-add-user": 1},
+            keys={"chmpx-mode": "SLAVE",
+                  "k2hr3-init-packages": "",
+                  "k2hr3-init-packagecloud-packages": "",
+                  "k2hr3-init-systemd-packages": "",
+                  "k2hdkc-dbaas-add-user": 1},
             alias=[]
         )
     )
@@ -252,7 +257,7 @@ if __name__ == '__main__':
     # print(k2hr3_policy.resp.body)
     # sys.exit(0)
 
-    ## 5. Makes a new k2hr3 role for the policy
+    # 5. Makes a new k2hr3 role for the policy
     POLICY_PATH = "yrn:yahoo:::{}:policy:{}".format(args.project, args.policy)
     k2hr3_role = K2hr3Role(k2hr3_token.token)
     http.POST(
