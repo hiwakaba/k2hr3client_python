@@ -36,10 +36,11 @@ src_dir = os.path.join(here, '..')
 if os.path.exists(src_dir):
     sys.path.append(src_dir)
 
+import k2hr3client # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 from k2hr3client.http import K2hr3Http  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 from k2hr3client.token import K2hr3Token  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 from k2hr3client.resource import K2hr3Resource  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
-from k2hr3client.policy import K2hr3Policy  # type: ignore # pylint: disable=import-error, wrong-import-position #noqa
+from k2hr3client.policy import K2hr3Policy  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 from k2hr3client.role import K2hr3Role  # type: ignore # pylint: disable=import-error, wrong-import-position # noqa
 
 IDENTITY_V3_PASSWORD_AUTH_JSON_DATA = """
