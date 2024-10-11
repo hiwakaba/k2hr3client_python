@@ -93,6 +93,7 @@ To use the settings in your program, see the following example.::
     demo
 
 Here are the default settings.
+
 +---------+------------------------+-------------------------------------------------+------------------------+
 | section | key name               | description                                     | default value          |
 +=========+========================+=================================================+========================+
