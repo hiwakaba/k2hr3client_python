@@ -2,6 +2,18 @@
 History
 =======
 
+1.1.2 (2024-10-11)
+-------------------
+
+* Enables logging to a file
+
+  1.1.1 (2024-10-09)
+-------------------
+
+* Removes hardcodings
+* Adds Configuration Interface
+* Updates the docs
+
 1.1.0 (2024-10-04)
 -------------------
 
